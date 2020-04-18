@@ -1,0 +1,14 @@
+.navbar {
+  padding: 18px;
+  background-color: rgb(29, 29, 29);
+  text-align: left;
+}
+
+.mainPageLink {
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 400;
+  padding-left: 10px;
+}
