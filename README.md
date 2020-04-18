@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👨‍🍳 Cookbook 👩‍🍳
 
-## Available Scripts
+Záverečný projekt pre predmet "Moderní webové technologie".
+Študenti vytvoria CRUD aplikáciu pre Žrádelník API.
+Inšpirovať sa môžete [dummy appkou tu.](https://exercise.cngroup.dk/).
 
-In the project directory, you can run:
+**DEADLINE ODOVZDANIA:** 8. 5. 2020 \
+**TERMÍN ZÁPOČTU:** 12. 5. 2020
 
-### `yarn start`
+## Minimálne požiadavky
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Výpis listu receptov
+- Vytvorenie receptu
+- Editácia receptu
+- Mazanie receptu
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Nemusíte implementovať side-dish a počet prvkov k receptu je ľubovoľný. API je stavané tak, že povinný je iba názov receptu. Dokumentácia API nižšie.
+\
+\
+Pre routing použite [React Router](https://reacttraining.com/react-router/web).
+\
+Pre API calls použite [Axios](https://github.com/axios/axios).
 
-### `yarn test`
+## Odovzdanie
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+V tomto repozitári budete mať vytvorené master branche, do ktorého **bez node_modules** pushnete svoje riešenia. Branche budú v tvare: `team1-master`, `team2-master`...
+Čo sa custom projektov týka, poprosím tiež do tohto istého repa, kvôli prehladnosti. \
+**Hint:** Vytvárajte si separátne branches a vytvorte si pull request do vášho mastru. Predtým ako kód mergnete, spravte si code review podobne, ako sme vám robili my v priebehu semestra, budete sa zároveň učiť medzi sebou a poskytnete si inú perspektívu.
 
-### `yarn build`
+## Spôsob hodnotenia
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Známkovanie
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Základnou známkou, z ktorej budeme vychádzať je C. Na základe UI (menej podstatné, nie každý je dizajnér) a hlavne **kvality kódu a dodržiavania konvencii** pôjde známka vyššie, alebo nižšie. Je to z dôvodu rozdielnej úrovne jednotlivých projektov, kde principiálne nemôžeme dať rovnaké hodnotenie niekomu, kto sa s aplikáciou vyhral a niekomu, kto síce zadanie splnil, no kvalitatívne to nie je ono.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Záverečná prezentácia
 
-### `yarn eject`
+Celkovo bude prebiehať ideálne tak, že kaž'dy z vás odprezentuje časť projektu, na ktore pracoval, my sa potom spýtame na určité časti kódu, poradíme sa a udelíme známku spolu s individuálnym feedbackom :)
+\
+Hodnotenie, na základe najnovších opatrení vlády môže prebiehať osobne na univerzite. V prípade, že sa chcete stretnútť F2F, kontaktujte nás prosím. Inak to bude (bohužial) klasicky cez MS Teams.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Ako si vylepšiť základnú známku
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Na štýlovanie využite `styled components`
+  - Dostupné knižnice sú: [Emotion](https://emotion.sh/docs/introduction) alebo [Styled Components](https://styled-components.com/)
+  
+* Použite nejakú component library, ideálne:
+  * [Material UI](https://material-ui.com/)
+  * [Ant Design](https://ant.design/)
+  * [React Bootstrap](https://react-bootstrap.github.io/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Pre folder structure využite [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/), štruktúra je nasledovná:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - **Pages:** obsahujú logiku
+  - **Templates:** Rendrujú celé UI, preberajú si logiku z page pomocou props
+  - **Organisms:** zhluk molekúl a atómov, väčšie Časti UI, napr. Header a Footer
+  - **Molecules:** Zhluk atómov, napr. Ikona s Label ==> IconLabel
+  - **Atoms:** Najzákladnejšie časti stránky: Button, Paragraph, Heading...
 
-## Learn More
+* Oddeľte API calls od logiky pomocou custom hooks (veľmi dôležité). Pre inšpiráciu využite repo [fire-cards](https://github.com/fresh-js-devs/fire-cards) a branch `lecture`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **KOMPONENTUJTE**. Sila Reactu je v oddelení logických celkov do komponent. Vytvorenie jednej karty nestačí, skončíte so záplavou `<div />`ov a kód sa stáva horšie čitatelným!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Mažte `console.log()`
 
-### Code Splitting
+* Pozor na nevyužité premenné a importy, chyby v konzoli.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Prosím nepoužívajte `var`. Za každý `var` umrie na svete jeden 🦄 a Patrik dostáva malý infarkt.
 
-### Analyzing the Bundle Size
+* Ak máte arrow funkciu, ktorá je na jeden riadok / vracia jednu expression, nepotrebujete `{}`, ani `return`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Vytvorte axios inštanciu a nastavte default URL
 
-### Making a Progressive Web App
+## API dokumentácia
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![POST /recipes](src/images/post_recipes.png)
+![PUT /recipes](src/images/put_recipes.png)
+![GET /recipes/{slug}](src/images/get_recipe.png)
+![DELETE /recipes/{id}](src/images/delete_recipe.png)
+![GET /recipes/ingredients](src/images/get_ingredients.png)
+![GET /recipes/side-dishes](src/images/get_side_dishes.png)
