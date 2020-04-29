@@ -15,8 +15,7 @@ const MainPage = () => {
        <Box>
          nejaky text
        </Box>
-       <RecipeList recipes={recipes}/>
-       ))};
+       <RecipeList recipes={recipes}/>       
     </Layout>   
     );
 };
