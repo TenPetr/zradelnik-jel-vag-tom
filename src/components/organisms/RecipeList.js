@@ -4,8 +4,8 @@ import RecipeListItem from "../organisms/RecipeListItem";
 
 const RecipeList = ({ recipes }) => {
   return recipes.map((recipe) => (
-    <Box>
-      <RecipeListItem key={recipe._id} recipe={recipe} />
+    <Box key={recipe._id}>
+      <RecipeListItem recipe={recipe} />
     </Box>
   ));
 };
