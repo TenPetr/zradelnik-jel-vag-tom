@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import Layout from '../components/organisms/Layout';
-import Button from '../components/atoms/Button';
-import Box from '../components/atoms/Box';
-import RecipeList from '../components/organisms/RecipeList';
-import recipes from '../mocks/recipes.json'
+import Layout from "../components/organisms/Layout";
+import RecipeList from "../components/organisms/RecipeList";
+
+import axios from "axios";
 
 const MainPage = () => {
-  
+  const url = "https://exercise.cngroup.dk/api/recipes";
+  const [recipes, setRecipes] = useState({ recipes: [], error: "" });
+
+  useEffect(() => {
+    fetchRecipes();
+  }, []);
+
+  const fetchRecipes = async () => {
+    try {
+      const result = await axios(url);
+      setRecipes({ recipes: result.data, error: "" });
+      console.log(recipes);
+    } catch ({ message }) {
+      setRecipes({ recipes: [], error: message });
+    }
+  };
 
   return (
+    <Layout></Layout>
+    /*
     <Layout>
-       <div>Main Page</div>       
-       <Box>
-         nejaky text
-       </Box>
-       <RecipeList recipes={recipes}/>
-       ))};
-    </Layout>   
-    );
+      <RecipeList recipes={recipes} />
+    </Layout>
+    */
+  );
 };
 
 export default MainPage;
