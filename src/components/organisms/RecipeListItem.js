@@ -1,9 +1,9 @@
 import React from "react";
 
-const RecipeListItem = ({ recipe }) => {
+const RecipeListItem = ({ recipe, detail }) => {
   const { preparationTime, title, lastModifiedDate } = recipe;
   return (
-    <div>
+    <div onClick={() => detail(recipe._id)}>
       <p>{title}</p>
       <p>{preparationTime}</p>
       <p>{lastModifiedDate}</p>

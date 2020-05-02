@@ -13,10 +13,7 @@ const RecipeList = ({ recipes }) => {
 
   return recipes.map((recipe) => (
     <Box key={recipe._id}>
-      <RecipeListItem
-        recipe={recipe}
-        onClick={() => handleGoToRecipeDetailPage(recipe._id)}
-      />
+      <RecipeListItem recipe={recipe} detail={handleGoToRecipeDetailPage} />
     </Box>
   ));
 };
