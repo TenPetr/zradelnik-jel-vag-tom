@@ -12,8 +12,8 @@ export default () => (
       <Route exact path="/" component={MainPage} />
       <Route exact path="/sidemeals" component={SideMealsPage} />
       <Route exact path="/add" component={EditPage} />
-      <Route exact path="/edit/:id" component={EditPage} />
-      <Route exact path="/detail/:id" component={RecipeDetailPage} />
+      <Route exact path="/edit/:recipeID" component={EditPage} />
+      <Route exact path="/detail/:recipeID" component={RecipeDetailPage} />
     </Switch>
   </BrowserRouter>
 );

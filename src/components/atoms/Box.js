@@ -7,7 +7,7 @@ const Box = styled.div({
   cursor: "pointer",
   backgroundColor: "grey",
   height: "250px",
-  backgroundSize: "cover",
+  backgroundSize: "cover",  
 });
 
 export default Box;
