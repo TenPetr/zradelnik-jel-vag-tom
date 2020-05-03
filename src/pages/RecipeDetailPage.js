@@ -1,20 +1,23 @@
 import React from "react";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
+import useRecipeDetail from "../hooks/useRecipeDetail";
+import Layout from "../components/organisms/Layout";
 
-import useRecipeDetail from '../hooks/useRecipeDetail';
 
 const RecipeDetailPage = () => {
   const recipeID = useParams();
   const recipeDetail = useRecipeDetail(recipeID);
-   console.log("recipe detail")  
-   console.log(recipeDetail);
+  console.log("recipe detail");
+  console.log(recipeDetail);
 
   return (
-    <>    
-    <p>{recipeDetail.recipeDetail.preparationTime}</p>
-     <div>I am deail page</div>
-    </>   
+    <Layout>
+      <h1>{recipeDetail.recipeDetail.title}</h1>
+      <p>{recipeDetail.recipeDetail.directions}</p>
+      <p>{recipeDetail.recipeDetail.preparationTime}</p>
+      <div>I am deail page</div>
+    </Layout>
   );
 };
 
