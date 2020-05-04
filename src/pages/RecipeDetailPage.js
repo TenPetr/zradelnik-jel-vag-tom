@@ -17,8 +17,8 @@ const LeftTable = styled.div`
 const RecipeDetailPage = () => {
   const recipeID = useParams();
   const recipeDetail = useRecipeDetail(recipeID);
-  console.log("recipe detail");
-  console.log(recipeDetail);
+  console.log("recipe ingredients");
+  console.log(recipeDetail.recipeDetail.ingredients);
 
   return (
     <Layout>
@@ -27,7 +27,7 @@ const RecipeDetailPage = () => {
       <LeftTable>
         <RichText text={recipeDetail.recipeDetail.directions} />
       </LeftTable>
-      <IngredientList ingredients={recipeDetail.ingredients}/>
+      {/* <IngredientList ingredients={recipeDetail.recipeDetail.ingredients}/> */}
       
     </Layout>
   );
