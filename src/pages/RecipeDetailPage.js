@@ -5,12 +5,12 @@ import styled from "@emotion/styled";
 import useRecipeDetail from "../hooks/useRecipeDetail";
 import Layout from "../components/organisms/Layout";
 import RichText from "../components/molecules/RichText";
-import IngredientList from "../components/organisms/IngredientList";
-const LeftTable = styled.div`
+
+const RightTable = styled.div`
   padding-right: 16px;
   flex: 1 1 0%;
   box-sizing: border-box;
-  display: block;
+  display: flex;
   width: 60%;
 `;
 
@@ -23,12 +23,10 @@ const RecipeDetailPage = () => {
   return (
     <Layout>
       <h1>{recipeDetail.recipeDetail.title}</h1>
-      <p>{recipeDetail.recipeDetail.preparationTime}</p> 
-      <LeftTable>
+      <p>{recipeDetail.recipeDetail.preparationTime}</p>
+      <RightTable>
         <RichText text={recipeDetail.recipeDetail.directions} />
-      </LeftTable>
-      {/* <IngredientList ingredients={recipeDetail.recipeDetail.ingredients}/> */}
-      
+      </RightTable>
     </Layout>
   );
 };

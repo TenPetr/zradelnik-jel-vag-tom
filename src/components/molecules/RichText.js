@@ -2,7 +2,6 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { css } from "emotion";
 
-
 const RichText = ({ text }) => {
   const stepSize = 2;
   const stepLineHeight = 1.5;
