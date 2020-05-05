@@ -9,7 +9,7 @@ export const RecipeDetailContainer = styled.div`
   align-items: center;
 `;
 
-export const RecipeDetailHeaderFooter = styled.div`
+export const RecipeDetailHeader = styled.div`
   flex: 1 1 100%;
   margin-bottom: 1rem;
 `;
@@ -20,10 +20,30 @@ export const IngredientsItem = styled.div`
   display: flex;
   //padding-right: 1rem;
   box-sizing: border-box;
+  flex-flow: column;
 `;
 
 export const DirectionsItem = styled.div`
   text-align: left;
   flex: 1 1 600px;
   box-sizing: border-box;
+`;
+
+export const RecipeDetailButtons = styled.div`
+  flex: 1 1 100%;
+  display:flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+`;
+
+export const EditBtn = styled.div`
+  font-size: 1rem;
+  padding: 5px;
+  background-color: green;
+`;
+
+export const RemoveBtn = styled.div`
+  font-size: 1rem;
+  padding: 5px;
+  background-color: red;
 `;
