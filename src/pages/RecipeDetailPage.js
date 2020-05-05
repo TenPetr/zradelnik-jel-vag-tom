@@ -2,8 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "@emotion/styled";
 
-import { faClock } from '@fortawesome/free-solid-svg-icons';
-
 import useRecipeDetail from "../hooks/useRecipeDetail";
 import useRecipeIngredients from "../hooks/useRecipeIngredients";
 import Layout from "../components/organisms/Layout";
