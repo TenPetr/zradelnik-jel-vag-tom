@@ -1,0 +1,25 @@
+.editBtn,.removeBtn{
+    font-size: 1rem;
+    padding: 10px 16px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #1D1D1D;
+    color: #fff;
+    transition: background-color .4s, box-shadow .4s;
+}
+
+.removeBtn:hover{
+    background-color: #BC4B51;
+    box-shadow: 5px 10px black;
+}
+
+.editBtn{
+    margin-right: 1rem;
+}
+
+.editBtn:hover{
+    background-color: #8CB369;
+    box-shadow: 5px 10px black;
+}
