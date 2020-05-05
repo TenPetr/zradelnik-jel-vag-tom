@@ -6,11 +6,14 @@ import { useHistory } from "react-router-dom";
 const RecipeList = ({ recipes }) => {
   const { push } = useHistory();
 
-  const handleGoToRecipeDetailPage = recipeID => push(`/detail/${recipeID}`);  
+  const handleGoToRecipeDetailPage = (recipeID) => push(`/detail/${recipeID}`);
 
   return recipes.map((recipe) => (
     <Box key={recipe._id}>
-      <RecipeListItem recipe={recipe} onClickGoToRecipeDetailPage={handleGoToRecipeDetailPage} />
+      <RecipeListItem
+        recipe={recipe}
+        onClickGoToRecipeDetailPage={handleGoToRecipeDetailPage}
+      />
     </Box>
   ));
 };

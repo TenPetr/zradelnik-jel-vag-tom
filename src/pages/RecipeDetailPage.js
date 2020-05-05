@@ -1,52 +1,27 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import styled from "@emotion/styled";
-
+import {
+  RecipeDetailContainer,
+  RecipeDetailHeaderFooter,
+  IngredientsItem,
+  DirectionsItem,
+} from "../styles/styles";
 import useRecipeDetail from "../hooks/useRecipeDetail";
 import useRecipeIngredients from "../hooks/useRecipeIngredients";
 import Layout from "../components/organisms/Layout";
 import RichText from "../components/molecules/RichText";
 
-
-
-const RecipeDetailContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  padding: 1rem;
-  align-items: center;
-  
-`;
-
-const RecipeDetailHeaderFooter = styled.div`
-  flex: 1 1 100%;
-  margin-bottom: 1rem;
-`;
-
-const IngredientsItem = styled.div`
-  text-align: center;
-  flex: 1 1 300px;
-  display: flex;
-  //padding-right: 1rem;
-  box-sizing: border-box;
-`;
-
-
-const DirectionsItem = styled.div`
-  text-align: left;
-  flex: 1 1 600px;
-  box-sizing: border-box;
-`;
-
-
 const RecipeDetailPage = () => {
   const recipeID = useParams();
   const recipeDetail = useRecipeDetail(recipeID);
 
-  
-
-  const {preparationTime, title, lastModifiedDate, directions,ingredients} = recipeDetail.recipeDetail;
+  const {
+    preparationTime,
+    title,
+    lastModifiedDate,
+    directions,
+    ingredients,
+  } = recipeDetail.recipeDetail;
   console.log(ingredients);
 
   return (
@@ -54,11 +29,15 @@ const RecipeDetailPage = () => {
       <RecipeDetailContainer>
         <RecipeDetailHeaderFooter>
           <h1>{title}</h1>
-          <p>⏲️{preparationTime} minut</p>
+          <p>
+            <span role="img" aria-label="clock">
+              ⏲️
+            </span>
+            {preparationTime} minut
+          </p>
         </RecipeDetailHeaderFooter>
         <IngredientsItem>
           <h2>Ingrediencie:</h2>
-          <p>{}</p>
         </IngredientsItem>
         <DirectionsItem>
           <h2>Postup:</h2>
@@ -66,8 +45,6 @@ const RecipeDetailPage = () => {
         </DirectionsItem>
         <p>Posledná změna:{lastModifiedDate}</p>
       </RecipeDetailContainer>
-      
-
     </Layout>
   );
 };
