@@ -6,7 +6,7 @@ const Box = styled.div({
   border: "1px solid white",
   cursor: "pointer",
   backgroundColor: "grey",
-  height: "150px",
+  height: "120px",
   textAlign: "center",
   padding: "15px",
   backgroundSize: "cover",
