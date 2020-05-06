@@ -9,12 +9,14 @@ const RecipeList = ({ recipes }) => {
   const handleGoToRecipeDetailPage = (recipeID) => push(`/detail/${recipeID}`);
 
   return recipes.map((recipe) => (
-    <Box key={recipe._id}>
-      <RecipeListItem
-        recipe={recipe}
-        onClickGoToRecipeDetailPage={handleGoToRecipeDetailPage}
-      />
-    </Box>
+    <div>
+      <Box key={recipe._id}>
+        <RecipeListItem
+          recipe={recipe}
+          onClickGoToRecipeDetailPage={handleGoToRecipeDetailPage}
+        />
+      </Box>
+    </div>
   ));
 };
 
