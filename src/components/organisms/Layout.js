@@ -21,13 +21,26 @@ const MainPageLink = styled.a`
 const Layout = ({ children }) => {
   return (
     <div className="App">
-      <Navbar>
+      <Navbar className="navbar">
         <MainPageLink href="/">
           Receptář{" "}
           <span role="img" aria-label="book">
             📖
           </span>
         </MainPageLink>
+        <div>
+          <a
+            role="img"
+            aria-label="book"
+            className="sidemeals"
+            href="/sidemeals"
+          >
+            Sidemeals
+          </a>
+          <a role="img" aria-label="book" className="addbutton" href="/add">
+            ➕
+          </a>
+        </div>
       </Navbar>
       <div className="container">{children}</div>
     </div>
