@@ -23,3 +23,30 @@
     background-color: #8CB369;
     box-shadow: 5px 10px black;
 }
+
+.editHeaderPrepTime,.editHeaderTitle{
+    font-size: 20px;
+    background-color: #08A4BD;
+    color: #fff;
+    margin-right: 1rem;
+    width: 30%;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.editHeaderPrepTime::-webkit-input-placeholder,.editHeaderTitle::-webkit-input-placeholder{
+    color: #000;
+    font-weight: 700;
+}
+
+#directions{
+    font-size: 20px;
+    color: #fff;
+    background-color: #1D1D1D;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    padding: 1rem;
+}

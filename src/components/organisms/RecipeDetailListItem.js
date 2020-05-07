@@ -9,9 +9,23 @@ import {
   DirectionsItem,
 } from "../../styles/styles";
 import useRecipeDetail from "../../hooks/useRecipeDetail";
+import useRecipeIngredients from "../../hooks/useRecipeIngredients";
 import RichText from "../molecules/RichText";
 
-const RecipeDetailListItem = ({ onEditClicked, onRemoveClicked }) => {
+const RecipeDetailListItem = 
+({   
+  editedID,
+  editedRecipeTitle,
+  setEditedRecipeTitle,
+  editedPrepTime,
+  setEditedPrepTime,
+  onEditClicked,
+  onRemoveClicked,
+  onEditSaveClicked,
+  onEditCancelClicked,
+  
+
+}) => {
   const recipeID = useParams();
   const recipeDetail = useRecipeDetail(recipeID);
 
@@ -23,38 +37,95 @@ const RecipeDetailListItem = ({ onEditClicked, onRemoveClicked }) => {
     ingredients,
   } = recipeDetail.recipeDetail;
 
-  return (
-    <>
-      <RecipeDetailHeader>
-        <h1>{title}</h1>
-        <p>
-          <span role="img" aria-label="clock">
-            ⏲️
-          </span>
-          {preparationTime} minut
-        </p>
-        <RecipeDetailButtons>
-          <button onClick={onEditClicked} className="editBtn">
-            Upravit
-          </button>
-          <button onClick={onRemoveClicked} className="removeBtn">
-            Smazat
-          </button>
-        </RecipeDetailButtons>
-      </RecipeDetailHeader>
-      <IngredientsItem>
-        <h2>Ingrediencie:</h2>
-        <table>
-          <tbody></tbody>
-        </table>
-        <p>Posledná změna:{lastModifiedDate}</p>
-      </IngredientsItem>
-      <DirectionsItem>
-        <h2>Postup:</h2>
-        <RichText text={directions} />
-      </DirectionsItem>
-    </>
-  );
-};
+  const isEditActive = recipeID === editedID;
+  const recipeIngredients = useRecipeIngredients(recipeID);
+
+  console.log(recipeIngredients);
+  console.log(ingredients);
+
+  const renderNormalView = () => {
+    return (
+      <>
+        <RecipeDetailHeader>
+          <h1>{title}</h1>
+          <p>
+            <span role="img" aria-label="clock">
+              ⏲️
+            </span>
+            {preparationTime} minut
+          </p>
+          <RecipeDetailButtons>
+            <button onClick={onEditClicked} className="editBtn">
+              Upravit
+            </button>
+            <button onClick={onRemoveClicked} className="removeBtn">
+              Smazat
+            </button>
+          </RecipeDetailButtons>
+        </RecipeDetailHeader>
+        <IngredientsItem>
+          <h2>Ingrediencie:</h2>
+          <table>
+            <tbody></tbody>
+          </table>
+          <p>Posledná změna:{lastModifiedDate}</p>
+        </IngredientsItem>
+        <DirectionsItem>
+          <h2>Postup:</h2>
+          <RichText text={directions} />
+        </DirectionsItem>
+      </>
+    );
+  };
+
+  const renderEditView = () => {
+    return (
+      <>
+        <RecipeDetailHeader>
+          <input 
+                  type = 'text' 
+                  value={editedRecipeTitle} 
+                  className='editHeaderTitle' 
+                  onChange = {event => setEditedRecipeTitle(event.target.value)}
+                  placeholder = {title}
+                >
+          </input>
+          <input 
+                type = 'number' 
+                value={editedPrepTime} 
+                className='editHeaderPrepTime' 
+                onChange = {event => setEditedPrepTime(event.target.value)}
+                placeholder = {preparationTime}
+              >                
+          </input>
+          <RecipeDetailButtons>
+            <button onClick={onEditSaveClicked} className="editBtn">
+              Uložit
+            </button>
+            <button onClick={onEditCancelClicked} className="removeBtn">
+              Zrušit
+            </button>
+          </RecipeDetailButtons>
+        </RecipeDetailHeader>
+        <IngredientsItem>
+          <h2>Ingrediencie:</h2>
+          <table>
+            <tbody></tbody>
+          </table>
+          <p>Posledná změna:{lastModifiedDate}</p>
+        </IngredientsItem>
+        <DirectionsItem>
+          <h2>Postup:</h2>
+          <textarea id='directions' rows='20' cols='80'></textarea>
+          <RichText text={directions} />
+        </DirectionsItem>
+      </>
+    );
+  };
+
+  return(
+    renderEditView()  
+    );
+}
 
 export default RecipeDetailListItem;
