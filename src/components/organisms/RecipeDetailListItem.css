@@ -26,7 +26,7 @@
 
 .editHeaderPrepTime,.editHeaderTitle{
     font-size: 20px;
-    background-color: #08A4BD;
+    background-color: #eee;
     color: #fff;
     margin-right: 1rem;
     width: 30%;
@@ -43,8 +43,8 @@
 
 #directions{
     font-size: 20px;
-    color: #fff;
-    background-color: #1D1D1D;
+    color: #000;
+    background-color: #eee;
     border: none;
     outline: none;
     border-radius: 30px;

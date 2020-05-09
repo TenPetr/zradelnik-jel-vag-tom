@@ -13,7 +13,8 @@ import useRecipeIngredients from "../../hooks/useRecipeIngredients";
 import RichText from "../molecules/RichText";
 
 const RecipeDetailListItem = 
-({   
+({
+  recipeID,   
   editedID,
   editedRecipeTitle,
   setEditedRecipeTitle,
@@ -26,7 +27,7 @@ const RecipeDetailListItem =
   
 
 }) => {
-  const recipeID = useParams();
+  recipeID = useParams();
   const recipeDetail = useRecipeDetail(recipeID);
 
   const {
@@ -38,10 +39,18 @@ const RecipeDetailListItem =
   } = recipeDetail.recipeDetail;
 
   const isEditActive = recipeID === editedID;
-  const recipeIngredients = useRecipeIngredients(recipeID);
+  const recipeIngredients = useRecipeIngredients();
 
   console.log(recipeIngredients);
-  console.log(ingredients);
+
+
+  console.log((ingredients));
+  
+
+  
+  const handleEditCancelClicked = id => {
+    return renderNormalView();
+  };
 
   const renderNormalView = () => {
     return (
@@ -124,7 +133,7 @@ const RecipeDetailListItem =
   };
 
   return(
-    renderEditView()  
+    isEditActive ? renderEditView() : renderNormalView()  
     );
 }
 
